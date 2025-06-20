@@ -13,8 +13,6 @@ $> Creating my own minimal and portable development environment
 * 📁 Elegant file browsing with [`oil.nvim`](https://github.com/stevearc/oil.nvim)
 * 📚 Ready to be extended with LSP, formatters, linters, etc.
 
----
-
 ## 📦 Project Structure (Overview)
 
 ```text
@@ -26,12 +24,14 @@ dotfiles/
 │       ├── plugins/             # One plugin = one file (lazy.nvim)
 │       └── config/              # (Optional) Options, keymaps, LSP, etc.
 ├── tmux/                  # tmux configuration
-│   └── tmux.conf
+│   ├── tmux.conf
+│   └── scripts/               # Custom tmux helper scripts
+│       └── tmux_layout.sh       # Pane layout selector
 ├── .bashrc                # Bash shell configuration
-└── .gitconfig             # Global Git configuration
-```
+├── .gitconfig             # Global Git configuration
+└── .gitignore             # Files to exclude (e.g. .bash_aliases)
 
----
+```
 
 ## 🚀 Getting Started
 
@@ -65,8 +65,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 ```
 
----
-
 ## ⚙️ Usage Guide
 
 ### 📟 tmux usage *(Coming soon)*
@@ -75,7 +73,42 @@ vim.opt.rtp:prepend(lazypath)
 
 *TODO: Add usage examples and tips.*
 
----
+#### 🧱 Custom Layout Script: `tmux_layout.sh`
+
+A flexible terminal layout tool that allows you to:
+
+- 🧭 Choose between **default**, **custom**, or **random** layout modes
+- 💡 Split panes interactively by direction (`v` or `h`) and percentage
+- 🎲 Randomize pane layout for creative or testing setups
+- ⚙️ Used via alias: `layout` `aliase layout=~/dotfiles/tmux/scripts/tmux_layout.sh`
+
+**Default layout example:**
+
+```bash
+tmux
+layout
+# Selects default: vertical split 70/30
+```
+
+**Custom layout example:**
+```bash
+tmux
+layout
+# Then choose:
+# → 3 panes
+# → v / 30
+# → h / 50
+```
+
+You can find the script in:
+```
+~/dotfiles/tmux/scripts/tmux_layout.sh
+```
+
+📝 Note: Make sure it is executable (chmod +x) and that your alias is set in .bash_aliases:
+```
+alias layout="~/dotfiles/tmux/scripts/tmux_layout.sh"
+```
 
 ### 💡 nvim usage *(Coming soon)*
 
