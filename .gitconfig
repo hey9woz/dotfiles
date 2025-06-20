@@ -1,0 +1,5 @@
+[safe]
+	directory = /usr/lib/firmware/brcm/linux-firmware
+[user]
+	name = sanflat
+	email = devaslife2205@gmail.com
