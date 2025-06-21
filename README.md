@@ -67,47 +67,64 @@ vim.opt.rtp:prepend(lazypath)
 
 ## ⚙️ Usage Guide
 
-### 📟 tmux usage *(Coming soon)*
+### 📟 tmux usage
 
-> Will include prefix, pane controls, and shortcuts based on `tmux.conf`
+I aim to have a minimal, yet powerful tmux setup.
 
-*TODO: Add usage examples and tips.*
+#### 🔑 Prefix Key
 
-#### 🧱 Custom Layout Script: `tmux_layout.sh`
+{prefix} = Ctrl + a
 
-A flexible terminal layout tool that allows you to:
+#### 📋 Key Bindings Overview
 
-- 🧭 Choose between **default**, **custom**, or **random** layout modes
-- 💡 Split panes interactively by direction (`v` or `h`) and percentage
-- 🎲 Randomize pane layout for creative or testing setups
-- ⚙️ Used via alias: `layout` `aliase layout=~/dotfiles/tmux/scripts/tmux_layout.sh`
+| Action             | Keys                            | Description                             |
+|--------------------|----------------------------------|-----------------------------------------|
+| Copy Mode          | {prefix} → [                    | Enter copy mode (vi-style)              |
+| Paste Buffer       | {prefix} → ]                    | Paste copied content                    |
+| Reload Config      | {prefix} → r                    | Reload `.tmux.conf`                     |
+| Split Vertical     | {prefix} → v                    | Split pane left/right                   |
+| Split Horizontal   | {prefix} → h                    | Split pane top/bottom                   |
+| Move Between Panes | {prefix} → ← / ↑ / ↓ / →         | Move focus across panes (default)       |
+| Resize Pane        | {prefix} → Ctrl + ← / ↑ / ↓ / →  | Resize pane (default behavior)          |
 
-**Default layout example:**
+> You can view or customize these bindings in `.tmux.conf`.
+
+### 🧱 Custom Layout Script: `tmux_layout.sh`
+
+A flexible terminal layout bash script that allows you to:
+
+- 🧭 Choose between **default**, **custom**, or **random** layout modes  
+- 💡 Split panes interactively by direction (`v` or `h`) and percentage  
+- 🎲 Randomize pane layout for creative or testing setups  
+- ⚙️ Use via alias: `layout` (see below)  
+
+> 📂 Script Location：`~/dotfiles/tmux/scripts/tmux_layout.sh`
+
+📝 Note:
+Ensure the script is executable and aliased properly in your .bash_aliases:
 
 ```bash
-tmux
-layout
-# Selects default: vertical split 70/30
-```
-
-**Custom layout example:**
-```bash
-tmux
-layout
-# Then choose:
-# → 3 panes
-# → v / 30
-# → h / 50
-```
-
-You can find the script in:
-```
-~/dotfiles/tmux/scripts/tmux_layout.sh
-```
-
-📝 Note: Make sure it is executable (chmod +x) and that your alias is set in .bash_aliases:
-```
+chmod +x ~/dotfiles/tmux/scripts/tmux_layout.sh
 alias layout="~/dotfiles/tmux/scripts/tmux_layout.sh"
+```
+
+#### 🔰 Default Layout Example
+
+```bash
+$ tmux
+$ layout
+# → Selects default: vertical split 70/30
+```
+
+#### ⚙️ Custom Layout Example
+
+```bash
+$ tmux
+$ layout
+# → Then choose:
+#    3 panes
+#    v / 30
+#    h / 50
 ```
 
 ### 💡 nvim usage *(Coming soon)*
