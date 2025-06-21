@@ -127,13 +127,28 @@ $ layout
 #    h / 50
 ```
 
-### 💡 nvim usage *(Coming soon)*
+### 🧠 nvim usage
 
-> Will document useful keybindings and plugin integrations.
+A clean, modular Neovim config built with `init.lua` + `lua/config/*`.
 
-*TODO: Describe leader mappings, plugin commands, and LSP interactions.*
+### 🗂 Structure Overview
 
----
+| File                          | Purpose                                 |
+|-------------------------------|------------------------------------------|
+| `init.lua`                   | Entry point. Loads options, keymaps, plugins |
+| `config/options.lua`         | Editor behavior settings (line numbers, indent, clipboard, etc.) |
+| `config/keymaps.lua`         | Leader key mappings and shortcuts       |
+| `plugins/`                   | Plugin configs (lazy-loaded)            |
+
+#### 🚀 Basic Key Bindings
+
+| Action              | Keys             | Description                            |
+|---------------------|------------------|----------------------------------------|
+| Save file           | `<leader>w`      | Write/save current file                |
+| Quit                | `<leader>q`      | Quit buffer                            |
+| Clear search        | `<leader>h`      | Clear search highlights                |
+| Paste (system)      | `<leader>p`      | Paste from system clipboard            |
+| Yank (visual mode)  | `<leader>y`      | Yank to system clipboard               |
 
 ## 🔌 Plugins
 
