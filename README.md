@@ -175,9 +175,6 @@ A clean, modular Neovim config built with `init.lua` + `lua/config/*`.
 
 🔗 [View plugin config](https://github.com/hey9woz/dotfiles/blob/main/nvim/lua/plugins/oil.lua)
 
-
-了解しました！以下に、**「どのLSPサーバーが自動インストール対象になるか」**と、**`mason.nvim` の使い方**を含めた拡張版を作成しました：
-
 ---
 
 ### 🧠 LSP & Autocompletion
