@@ -175,6 +175,77 @@ A clean, modular Neovim config built with `init.lua` + `lua/config/*`.
 
 🔗 [View plugin config](https://github.com/hey9woz/dotfiles/blob/main/nvim/lua/plugins/oil.lua)
 
+
+了解しました！以下に、**「どのLSPサーバーが自動インストール対象になるか」**と、**`mason.nvim` の使い方**を含めた拡張版を作成しました：
+
+---
+
+### 🧠 LSP & Autocompletion
+
+> Minimal and practical setup for LSP (Language Server Protocol) and autocompletion using `nvim-lspconfig`, `nvim-cmp`, and `mason.nvim`.
+> Inspired by [lsp-zero](https://lsp-zero.netlify.app/docs/language-server-configuration) for intuitive keymaps and clean defaults.
+
+```lua
+-- LSP usage
+-- ----------------------------------------
+-- `K`         : Show documentation (hover)
+-- `gd`        : Go to definition
+-- `gD`        : Go to declaration
+-- `gi`        : Go to implementation
+-- `go`        : Go to type definition
+-- `gr`        : List references
+-- `gs`        : Show signature help
+-- `<F2>`      : Rename symbol
+-- `<F3>`      : Format code (normal & visual mode)
+-- `<F4>`      : Code action (e.g., quickfix/import)
+
+-- Autocompletion (Insert Mode)
+-- `<C-n>`     : Select next item
+-- `<C-p>`     : Select previous item
+-- `<C-Space>` : Trigger completion menu
+-- `<CR>`      : Confirm selected item
+-- `<C-d/u>`   : Scroll documentation
+-- ----------------------------------------
+```
+
+#### 📦 LSP Server Installation (via mason.nvim)
+
+This setup uses `mason.nvim` + `mason-lspconfig.nvim` to automatically install and configure any LSP server you request via `lspconfig`.
+
+💡 **To install a server**, simply open Neovim and run:
+
+```bash
+:Mason
+```
+
+Inside the Mason UI:
+
+* Press `i` to install a selected server
+* Use `/` to search (e.g. `tsserver`, `pyright`, `gopls`, `html`, etc.)
+
+💡 Alternatively, servers are **auto-installed** the moment you reference them via:
+
+```lua
+require("lspconfig").tsserver.setup({})
+```
+
+(as handled by the `handlers` section in `mason-lspconfig`)
+
+#### 🛠 Example: Install & Activate `pyright`
+
+1. Run `:Mason` and install `pyright`
+2. The following will automatically configure it:
+
+```lua
+require("lspconfig").pyright.setup({
+  capabilities = require("cmp_nvim_lsp").default_capabilities(),
+})
+```
+
+No manual binary install is required!
+
+🔗 [View plugin config](https://github.com/hey9woz/dotfiles/blob/main/nvim/lua/plugins/lsp.lua)
+
 ## 📝 License
 
 This project is licensed under the MIT License.
