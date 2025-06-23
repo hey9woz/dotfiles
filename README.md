@@ -243,6 +243,43 @@ No manual binary install is required!
 
 🔗 [View plugin config](https://github.com/hey9woz/dotfiles/blob/main/nvim/lua/plugins/lsp.lua)
 
+### ✨ Format on Save (conform.nvim + prettierd)
+
+> Automatically formats supported filetypes on save using `conform.nvim` and `prettierd`.
+
+```lua
+-- Supported filetypes
+-- ----------------------------------------
+-- javascript
+-- typescript
+-- html
+-- css
+-- json
+-- markdown
+-- yaml
+
+-- Format on save is enabled with LSP fallback
+-- ----------------------------------------
+```
+
+#### 🛠 Formatter Installation (via mason.nvim)
+
+Formatting tools are **not automatically installed**.
+To install a formatter such as `prettierd`, open Neovim and run:
+
+```bash
+:Mason
+```
+
+Then:
+
+* Use `/` to search for `prettierd`
+* Press `i` to install it
+
+💡 Once installed, formatting will be triggered automatically on save.
+
+🔗 [View plugin config](https://github.com/hey9woz/dotfiles/blob/main/nvim/lua/plugins/conform.lua)
+
 ## 📝 License
 
 This project is licensed under the MIT License.
