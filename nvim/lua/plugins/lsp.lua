@@ -69,6 +69,8 @@ return {
   -- Mason: LSP server manager
   {
     "williamboman/mason.nvim",
+    lazy = false,
+    priority = 1000,
     config = true,
   },
 
