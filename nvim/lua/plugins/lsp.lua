@@ -7,11 +7,22 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
+      -- Only show diagnostics in a floating window (minimalist style)
+      vim.opt.updatetime = 300
+
+      vim.diagnostic.config({
+        virtual_text = false,
+        signs = false,
+        underline = true,
+      })
+
+      vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })]])
+
+      -- Set up LSP-related keymaps when the language server attaches to a buffer
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(ev)
           local opts = { buffer = ev.buf }
 
-          -- LSP keybindings
           vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
           vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
           vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
@@ -78,4 +89,3 @@ return {
     end,
   },
 }
-
