@@ -28,7 +28,6 @@ dotfiles/
 │   └── scripts/               # Custom tmux helper scripts
 │       └── tmux_layout.sh       # Pane layout selector
 ├── .bashrc                # Bash shell configuration
-├── .gitconfig             # Global Git configuration
 └── .gitignore             # Files to exclude (e.g. .bash_aliases)
 
 ```
