@@ -7,11 +7,11 @@ $> Creating my own minimal and portable development environment
 
 ## ✨ Features
 
-* ⚡ **Fast** and modular plugin management via [lazy.nvim](https://github.com/folke/lazy.nvim)
-* 🧼 Clean setup, easy to understand and maintain
-* 📦 Git-based environment for portability (Linux / WSL / macOS)
-* 📁 Elegant file browsing with [`oil.nvim`](https://github.com/stevearc/oil.nvim)
-* 📚 Ready to be extended with LSP, formatters, linters, etc.
+- ⚡ **Fast** and modular plugin management via [lazy.nvim](https://github.com/folke/lazy.nvim)
+- 🧼 Clean setup, easy to understand and maintain
+- 📦 Git-based environment for portability (Linux / WSL / macOS)
+- 📁 Elegant file browsing with [`oil.nvim`](https://github.com/stevearc/oil.nvim)
+- 📚 Ready to be extended with LSP, formatters, linters, etc.
 
 ## 📦 Project Structure (Overview)
 
@@ -42,7 +42,6 @@ git clone git@github.com:yourname/dotfiles.git ~/dotfiles
 ln -s ~/dotfiles/nvim ~/.config/nvim
 ln -s ~/dotfiles/tmux ~/.config/tmux
 ln -s ~/dotfiles/.bashrc ~/.bashrc
-ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 # ...add more as needed
 ```
 
@@ -77,15 +76,15 @@ I aim to have a minimal, yet powerful tmux setup.
 
 #### 📋 Key Bindings Overview
 
-| Action             | Keys                            | Description                             |
-|--------------------|----------------------------------|-----------------------------------------|
-| Copy Mode          | {prefix} → [                    | Enter copy mode (vi-style)              |
-| Paste Buffer       | {prefix} → ]                    | Paste copied content                    |
-| Reload Config      | {prefix} → r                    | Reload `.tmux.conf`                     |
-| Split Vertical     | {prefix} → v                    | Split pane left/right                   |
-| Split Horizontal   | {prefix} → h                    | Split pane top/bottom                   |
-| Move Between Panes | {prefix} → ← / ↑ / ↓ / →         | Move focus across panes (default)       |
-| Resize Pane        | {prefix} → Ctrl + ← / ↑ / ↓ / →  | Resize pane (default behavior)          |
+| Action             | Keys                            | Description                       |
+| ------------------ | ------------------------------- | --------------------------------- |
+| Copy Mode          | {prefix} → [                    | Enter copy mode (vi-style)        |
+| Paste Buffer       | {prefix} → ]                    | Paste copied content              |
+| Reload Config      | {prefix} → r                    | Reload `.tmux.conf`               |
+| Split Vertical     | {prefix} → v                    | Split pane left/right             |
+| Split Horizontal   | {prefix} → h                    | Split pane top/bottom             |
+| Move Between Panes | {prefix} → ← / ↑ / ↓ / →        | Move focus across panes (default) |
+| Resize Pane        | {prefix} → Ctrl + ← / ↑ / ↓ / → | Resize pane (default behavior)    |
 
 > You can view or customize these bindings in `.tmux.conf`.
 
@@ -93,10 +92,10 @@ I aim to have a minimal, yet powerful tmux setup.
 
 A flexible terminal layout bash script that allows you to:
 
-- 🧭 Choose between **default**, **custom**, or **random** layout modes  
-- 💡 Split panes interactively by direction (`v` or `h`) and percentage  
-- 🎲 Randomize pane layout for creative or testing setups  
-- ⚙️ Use via alias: `layout` (see below)  
+- 🧭 Choose between **default**, **custom**, or **random** layout modes
+- 💡 Split panes interactively by direction (`v` or `h`) and percentage
+- 🎲 Randomize pane layout for creative or testing setups
+- ⚙️ Use via alias: `layout` (see below)
 
 > 📂 Script Location：`~/dotfiles/tmux/scripts/tmux_layout.sh`
 
@@ -133,22 +132,58 @@ A clean, modular Neovim config built with `init.lua` + `lua/config/*`.
 
 ### 🗂 Structure Overview
 
-| File                          | Purpose                                 |
-|-------------------------------|------------------------------------------|
-| `init.lua`                   | Entry point. Loads options, keymaps, plugins |
-| `config/options.lua`         | Editor behavior settings (line numbers, indent, clipboard, etc.) |
-| `config/keymaps.lua`         | Leader key mappings and shortcuts       |
-| `plugins/`                   | Plugin configs (lazy-loaded)            |
+| File                 | Purpose                                                          |
+| -------------------- | ---------------------------------------------------------------- |
+| `init.lua`           | Entry point. Loads options, keymaps, plugins                     |
+| `config/options.lua` | Editor behavior settings (line numbers, indent, clipboard, etc.) |
+| `config/keymaps.lua` | Leader key mappings and shortcuts                                |
+| `plugins/`           | Plugin configs (lazy-loaded)                                     |
 
 #### 🚀 Basic Key Bindings
 
-| Action              | Keys             | Description                            |
-|---------------------|------------------|----------------------------------------|
-| Save file           | `<leader>w`      | Write/save current file                |
-| Quit                | `<leader>q`      | Quit buffer                            |
-| Clear search        | `<leader>h`      | Clear search highlights                |
-| Paste (system)      | `<leader>p`      | Paste from system clipboard            |
-| Yank (visual mode)  | `<leader>y`      | Yank to system clipboard               |
+| Action             | Keys        | Description                 |
+| ------------------ | ----------- | --------------------------- |
+| Save file          | `<leader>w` | Write/save current file     |
+| Quit               | `<leader>q` | Quit buffer                 |
+| Clear search       | `<leader>h` | Clear search highlights     |
+| Paste (system)     | `<leader>p` | Paste from system clipboard |
+| Yank (visual mode) | `<leader>y` | Yank to system clipboard    |
+
+### 🛠 Git aliases
+
+To simplify frequent Git operations, a set of useful Git aliases is defined in [`dotfiles/gitconfig.example`](./gitconfig.example).
+These aliases require you to **prefix with `git`** (e.g. `git gs`) and avoid conflicts with system binaries like `gs` (Ghostscript).
+
+| Alias       | Full Command                                 | Description                                     |
+| ----------- | -------------------------------------------- | ----------------------------------------------- |
+| `git gs`    | `git status`                                 | Show current working tree status                |
+| `git gst`   | `git status`                                 | Safer alias (avoids conflict with `gs` command) |
+| `git st`    | `git status -sb`                             | Short status with branch info                   |
+| `git gco`   | `git checkout`                               | Switch branches                                 |
+| `git gcb`   | `git checkout -b`                            | Create and switch to a new branch               |
+| `git gb`    | `git branch`                                 | List local branches                             |
+| `git gbD`   | `git branch -d`                              | Delete a local branch                           |
+| `git ga`    | `git add`                                    | Stage files                                     |
+| `git gaA`   | `git add -A`                                 | Stage all changes                               |
+| `git gc`    | `git commit`                                 | Commit changes                                  |
+| `git gcm`   | `git commit -m`                              | Commit with message                             |
+| `git amend` | `git commit --amend`                         | Edit last commit                                |
+| `git undo`  | `git reset --soft HEAD^`                     | Undo last commit (keep changes in working tree) |
+| `git gf`    | `git fetch`                                  | Fetch updates from remote                       |
+| `git gpoh`  | `git push origin HEAD`                       | Push current branch to origin                   |
+| `git gm`    | `git merge`                                  | Merge branches                                  |
+| `git gl`    | `git log`                                    | Full log view                                   |
+| `git glO`   | `git log --oneline`                          | Compact log view                                |
+| `git glO10` | `git log --oneline -10`                      | Last 10 commits in one-line format              |
+| `git glO20` | `git log --oneline -20`                      | Last 20 commits in one-line format              |
+| `git glOg`  | `git log --oneline --graph`                  | Visual commit graph                             |
+| `git lol`   | `git log --oneline --graph --decorate --all` | Full decorated graph of all refs                |
+| `git last`  | `git log -1 HEAD`                            | Show last commit only                           |
+| `git gsa`   | `git stash`                                  | Stash current changes                           |
+| `git al`    | `git config --get-regexp ^alias\\.`          | List all defined Git aliases                    |
+
+- ✅ Always use aliases with the `git` prefix to prevent shell conflicts.
+- 📁 Keep `.gitconfig.example` under version control.
 
 ## 🔌 Plugins
 
@@ -217,8 +252,8 @@ This setup uses `mason.nvim` + `mason-lspconfig.nvim` to automatically install a
 
 Inside the Mason UI:
 
-* Press `i` to install a selected server
-* Use `/` to search (e.g. `tsserver`, `pyright`, `gopls`, `html`, etc.)
+- Press `i` to install a selected server
+- Use `/` to search (e.g. `tsserver`, `pyright`, `gopls`, `html`, etc.)
 
 💡 Alternatively, servers are **auto-installed** the moment you reference them via:
 
@@ -273,8 +308,8 @@ To install a formatter such as `prettierd`, open Neovim and run:
 
 Then:
 
-* Use `/` to search for `prettierd`
-* Press `i` to install it
+- Use `/` to search for `prettierd`
+- Press `i` to install it
 
 💡 Once installed, formatting will be triggered automatically on save.
 

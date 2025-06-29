@@ -1,0 +1,19 @@
+# ~/.bash_aliases example
+# We do not handle .bash_aliases. Since it may contain confidential information, we manage it as a public template.
+
+# Use Neovim as default editor
+alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
+
+# Set default editor env var (optional)
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# TryHackMe VPN (do NOT commit this file)
+# ⚠️ Contains path to sensitive .ovpn config
+alias tryhackme="sudo openvpn ~/Hoge..."
+
+# Tmux layout tool
+alias layout="~/dotfiles/tmux/scripts/tmux_layout.sh"
+

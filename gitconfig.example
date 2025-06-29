@@ -1,0 +1,47 @@
+[user]
+    name = yourname
+    email = your@email.example.com
+
+[alias]
+    # Show all defined aliases
+    al = config --get-regexp ^alias\.
+
+    # Status
+    gs = status
+    gst = status  # safe alias to avoid ghostscript conflict
+    st = status -sb  # short and branch format
+
+    # Branch
+    gb = branch
+    gbD = branch -d
+
+    # Checkout
+    gco = checkout
+    gcb = checkout -b
+
+    # Add
+    ga = add
+    gaA = add -A
+
+    # Commit
+    gc = commit
+    gcm = commit -m
+    amend = commit --amend
+    undo = reset --soft HEAD^  # undo last commit (keep changes)
+
+    # Fetch, Push, Merge
+    gf = fetch
+    gpoh = push origin HEAD  # push current HEAD to origin
+    gm = merge
+
+    # Log
+    gl = log
+    glO = log --oneline
+    glO10 = log --oneline -10
+    glO20 = log --oneline -20
+    glOg = log --oneline --graph
+    lol = log --oneline --graph --decorate --all  # full visual log
+    last = log -1 HEAD  # show last commit
+
+    # Stash
+    gsa = stash
