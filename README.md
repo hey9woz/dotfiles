@@ -211,6 +211,33 @@ These aliases require you to **prefix with `git`** (e.g. `git gs`) and avoid con
 
 ---
 
+### 🔭 telescope.nvim
+
+> Fuzzy finder powered by [ripgrep](https://github.com/BurntSushi/ripgrep).
+> Useful for searching files, buffers, help tags, and even live text inside files.
+
+```lua
+-- telescope.nvim usage
+-- ----------------------------------------
+-- <leader>ff : Find files
+-- <leader>fg : Live grep (requires ripgrep)
+-- <leader>fb : List open buffers
+-- <leader>fh : Search help tags
+
+-- ----------------------------------------
+```
+
+💡 `ripgrep` is required for `live_grep` to work.
+Install via:
+
+- `brew install ripgrep` (macOS)
+- `sudo apt install ripgrep` (Ubuntu/Debian)
+- `scoop install ripgrep` (Windows)
+
+🔗 [View plugin config](https://github.com/hey9woz/dotfiles/blob/main/nvim/lua/plugins/telescope.lua)
+
+---
+
 ### 🧠 LSP & Autocompletion
 
 > Minimal and practical setup for LSP (Language Server Protocol) and autocompletion using `nvim-lspconfig`, `nvim-cmp`, and `mason.nvim`.
